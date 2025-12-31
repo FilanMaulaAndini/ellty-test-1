@@ -45,9 +45,16 @@ function App() {
                     selectedPages.length === pages.length ? "checked" : ""
                   }`}
                 >
-                  {selectedPages.length === pages.length && (
+                  {/* {selectedPages.length === pages.length && (
                     <div className="checkmark-icon" />
-                  )}
+                  )} */}
+                  <div
+                    className={`checkmark-icon ${
+                      selectedPages.length === pages.length
+                        ? "indeterminate"
+                        : ""
+                    }`}
+                  />
                 </div>
               </div>
             </label>
@@ -72,9 +79,11 @@ function App() {
                       selectedPages.includes(page) ? "checked" : ""
                     }`}
                   >
-                    {selectedPages.includes(page) && (
-                      <div className="checkmark-icon" />
-                    )}
+                    <div
+                      className={`checkmark-icon ${
+                        selectedPages.length ? "indeterminate" : ""
+                      }`}
+                    />
                   </div>
                 </div>
               </label>
@@ -83,7 +92,10 @@ function App() {
         </div>
 
         <div className="divider" />
-        <Button label="Done" variant="done-button" onClick={handleDone} />
+
+        <div className="button-wrapper">
+          <Button label="Done" variant="done-button" onClick={handleDone} />
+        </div>
       </div>
     </div>
   );
